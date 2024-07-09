@@ -124,7 +124,7 @@ static void dcgw_websocket_event_handler(void* handler_arg, esp_event_base_t bas
         return;
     }
 
-    DISCORD_LOGD("ws event (event=%d, op_code=%d, payload_len=%d, data_len=%d, payload_offset=%d)",
+    DISCORD_LOGD("ws event (event=%ld, op_code=%d, payload_len=%d, data_len=%d, payload_offset=%d)",
         event_id,
         data->op_code,
         data->payload_len, 
@@ -156,7 +156,7 @@ static void dcgw_websocket_event_handler(void* handler_arg, esp_event_base_t bas
             break;
             
         default:
-            DISCORD_LOGW("Unknown ws event %d", event_id);
+            DISCORD_LOGW("Unknown ws event %ld", event_id);
             break;
     }
 }

@@ -1,4 +1,6 @@
+#include "esp_app_format.h"
 #include "esp_ota_ops.h"
+#include "esp_timer.h"
 #include "discord/private/_discord.h"
 #include "discord_ota.h"
 #include "discord/session.h"
@@ -316,7 +318,7 @@ static esp_err_t ota_status_message_content(discord_ota_handle_t ota_hndl, char*
     sprintf(uptime, "%lld ms", esp_timer_get_time() / 1000);
 
     char free_heap[15];
-    sprintf(free_heap, "%d bytes", esp_get_free_heap_size());
+    sprintf(free_heap, "%lu bytes", esp_get_free_heap_size());
 
     char* content = estr_cat(
         "```yaml"
